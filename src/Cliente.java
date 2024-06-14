@@ -1,20 +1,26 @@
 import java.util.Date;
 
-public class Cliente {
+public abstract class Cliente {
 
     String nome;
-
     String endereco;
-    Date data ;
+    Date data;
+    double limite;
 
     public Cliente(String nome, String endereco) {
         this.nome = nome;
         this.endereco = endereco;
         data = new Date();
     }
+
+    public abstract boolean autenticar(String chave);
+
+    public abstract void setLimite(double limite);
+
     public void imprimir() {
         System.out.println("Cliente Invalido!");
     }
+
 
   /*  private static boolean isCpfValid(String cpf) {//nao tera mais
         boolean cpfValido = true;

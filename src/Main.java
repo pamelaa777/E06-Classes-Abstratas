@@ -40,22 +40,11 @@ public class Main {
         System.out.println(loja.equals(loja2));
 
         if (joao != null) {
-            Conta conta1 = new Conta(1234, joao, 0, 1500);
-            Conta conta2 = new Conta(12121, joao, 10000, 1500);
-
-            conta1.depositar(3000);
-            conta1.depositar(2000);
-            conta1.depositar(2000);
-            conta1.depositar(2000);
-            conta1.depositar(2000);
-            conta1.depositar(2000);
-            conta1.depositar(2000);
-            conta1.depositar(2000);
-            conta1.depositar(2000);
-            conta1.depositar(2000);
-            conta1.depositar(2000);
-            conta1.depositar(2000);
-            conta1.depositar(2000);
+            Conta conta1 = new ContaUniversitaria(1234, joao, 0, -200);
+            Conta conta2 = new ContaCorrente(12121, joao, 10000, 1500);
+            Conta conta3 = new ContaCorrente(12134, joao, 500, 1500);
+            conta2.setLimite(-300);
+            conta3.setLimite(300);
             conta1.depositar(2000);
             conta1.depositar(2000);
             conta1.depositar(2000);

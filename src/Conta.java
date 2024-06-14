@@ -1,4 +1,4 @@
-public class Conta {
+public abstract class Conta {
 
     private int numero;
 
@@ -6,13 +6,16 @@ public class Conta {
 
     private double saldo;
 
-    private double limite;
+    protected double limite;
 
     private Operacao[] operacoes;
 
     private int proximaOperacao;
 
     private static int totalContas = 0;
+
+    public abstract void setLimite(double limite);
+
 
     public Conta(int numero, Cliente dono, double saldo, double limite) {
         this.numero = numero;
@@ -107,22 +110,16 @@ public class Conta {
         this.dono = dono;
     }
 
-    public void setLimite(double limite) {
-        if (limite < 0)
-            limite = 0;
-
-        this.limite = limite;
+        @Override
+        public String toString() {
+            return "Numero: " + this.numero +
+                    "\nDono: " + this.dono +
+                    "\nSaldo: " + this.saldo +
+                    "\nLimite: " + this.limite;
+        }
+        @Override
+        public boolean equals(Object obj) {
+            Conta that = (Conta) obj;
+            return this.numero == that.numero;
+        }
     }
-    @Override
-    public String toString() {
-        return "Numero: " + this.numero +
-                "\nDono: " + this.dono +
-                "\nSaldo: " + this.saldo +
-                "\nLimite: " + this.limite;
-    }
-    @Override
-    public boolean equals(Object obj) {
-        Conta that = (Conta) obj;
-        return this.numero == that.numero;
-    }
-}
