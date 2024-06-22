@@ -1,15 +1,15 @@
-public class ContaCorrente extends Conta {
+import Cliente.*;
+public class ContaCorrente extends Conta{
 
-    public ContaCorrente(int numero, Cliente dono, double saldo, double limite) {
-        super(numero, dono, saldo, limite);
+    public ContaCorrente(int numero, Cliente dono, double saldo, double limiteMax, double limiteMin){
+        super(numero, dono, saldo);
+        setLimite(limiteMax, limiteMin);
     }
 
     @Override
-    public void setLimite(double limite) {
-        if (limite >= -100) {
-            this.limite = limite;
-        } else {
-            System.out.println("Limite inválido. O limite para ContaCorrente deve ser maior ou igual a -100.");
-        }
+    void setLimite(double limiteMax, double limiteMin) {
+        if (limiteMin < -100) limiteMin = -100;
+        super.limiteMin=limiteMin;
+        super.limiteMax=limiteMax;
     }
 }
