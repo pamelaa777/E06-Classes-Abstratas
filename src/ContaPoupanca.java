@@ -1,4 +1,3 @@
-import Cliente.Cliente;
 public class ContaPoupanca extends Conta{
 
     public ContaPoupanca(int numero, Cliente dono, double saldo, double limiteMax, double limiteMin){
