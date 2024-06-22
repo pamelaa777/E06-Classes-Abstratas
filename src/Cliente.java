@@ -1,25 +1,28 @@
 import java.util.Date;
+public abstract class Cliente { 
 
-public abstract class Cliente {
+    protected String nome; 
+    protected String endereco;
+    protected Date data;
 
-    String nome;
-    String endereco;
-    Date data;
-    double limite;
-
-    public Cliente(String nome, String endereco) {
+    Cliente(String nome, String endereco, Date data) {
         this.nome = nome;
         this.endereco = endereco;
-        data = new Date();
+        this.data = data;
     }
 
-    public abstract boolean autenticar(String chave);
+    public void imprimir(){System.out.println("Cliente Inválido");}
 
-    public abstract void setLimite(double limite);
+    abstract boolean autenticar(String key);
 
-    public void imprimir() {
-        System.out.println("Cliente Invalido!");
-    }
+    //Encapsulation
+    public String getNome() {return nome;}
+    public void setNome(String nome) {this.nome = nome;}
+    public String getEndereco() {return endereco;}
+    public void setEndereco(String endereco) {this.endereco = endereco;}
+    public Date getData() {return data;}
+    
+}
 
 
   /*  private static boolean isCpfValid(String cpf) {//nao tera mais
