@@ -1,42 +1,43 @@
-public class PessoaFisica extends Cliente {
-    String cpf;
-    int idade;
-    char sexo;
+import java.util.Date;
 
-    public PessoaFisica(String nome, String endereco, String cpf, int idade, char sexo) {
-        super(nome, endereco);
+public class PessoaFisica extends Cliente {
+    private String cpf;
+    private int idade;
+    private char sexo;
+
+    public PessoaFisica(String nome,  String endereco, String cpf, int idade, char sexo) {
+        super(nome, endereco, new Date());
         this.cpf = cpf;
         this.idade = idade;
         this.sexo = sexo;
     }
-
-    @Override
-    public boolean autenticar(String chave) {
-        return this.cpf.equals(chave);
-    }
-
-    @Override
-    public void setLimite(double limite) {
-        if (limite >= -100) {
-            this.limite = limite;
-        } else {
-            System.out.println("Limite inválido. O limite mínimo para ContaCorrente é -100.");
-        }
-    }
-
-    @Override
-    public String toString() {
-        return "-------------------------" +
-                "\nNome: " + this.nome +
-                "\nCPF: " + this.cpf +
-                "\nEndereco: " + this.endereco +
-                "\nIdade: " + this.idade +
-                "\nSexo: " + this.sexo +
-                "\n-------------------------";
+    
+    public String toString(){
+        return
+        "\n===== Cliente PF ====="+
+        "\nNome: " + this.nome + 
+        "\nIdade: " + this.idade +
+        "\nSexo: " + this.sexo +
+        "\nEndereco: " + this.endereco +
+        "\nCPF: " + this.cpf +
+        "\n====================";
     }
 
     @Override
     public boolean equals(Object obj) {
-        return this.cpf.equals(((PessoaFisica) obj).cpf);
+        ClientePessoaFisica pessoa = (ClientePessoaFisica) obj;
+        return cpf.equals(pessoa.cpf);
     }
-}
+    
+    @Override
+    boolean autenticar(String key) {
+        return key.equals(this.cpf);
+    }
+
+    //Encapsulamento
+    public String getCpf() {return cpf;}
+    public void setCpf(String cpf) {this.cpf = cpf;}
+    public int getIdade() {return idade;}
+    public void setIdade(int idade) {this.idade = idade;}
+    public char getSexo() {return sexo;}
+    public void setSexo(char sexo) {this.sexo = sexo;}
