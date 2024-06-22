@@ -1,6 +1,4 @@
-import Cliente.*;
-import Contas.*;
-import Operacao.*;
+
 public class Main {
     public static void main(String[] args) {
 
