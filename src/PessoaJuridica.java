@@ -1,43 +1,47 @@
-public class PessoaJuridica extends Cliente{
-    String cnpj;
-    int numFuncionarios;
-    String setor;
+import java.util.Date;
 
-    public PessoaJuridica(String nome, String endereco, String cnpj, int numFuncionarios, String setor) {
-        super(nome, endereco);
-        this.cnpj = cnpj;
+public class PessoaJuridica extends Cliente {
+
+    private String cnpj;
+    private int numFuncionarios;
+    private String setor;
+
+    public ClientePessoaJuridica(String nome,  String endereco, String cnpj, int numFuncionarios, String setor){
+        super(nome, endereco, new Date());
+        this.cnpj=cnpj;
         this.numFuncionarios = numFuncionarios;
         this.setor = setor;
     }
 
-    @Override
-    public boolean autenticar(String chave) {
-        return this.cnpj.equals(chave);
-    }
-
-    @Override
-    public void setLimite(double limite) {
-        if (limite >= 100 && limite <= 1000) {
-            this.limite = limite;
-        } else {
-            System.out.println("Limite inválido. O limite para ContaPoupanca deve estar entre 100 e 1000.");
-        }
-    }
-
-    @Override
-    public String toString() {
-        return  "-------------------------" +
-                "\nNome: " + this.nome +
-                "\nEndereco: " + this.endereco +
-                "\nCNPJ: " + this.cnpj +
-                "\nNumero de Funcionarios: " + this.numFuncionarios +
-                "\nSetor: " + this.setor +
-                "\n-------------------------";
+    public String toString(){
+        return 
+        "\n===================="+
+        "\nNome: " + this.nome+
+        "\nSetor: " + this.setor+
+        "\nNumero de funcionários: " + this.numFuncionarios+
+        "\nEndereco: " + this.endereco+
+        "\nCNPJ: " + this.cnpj+
+        "\n====================";
     }
 
     @Override
     public boolean equals(Object obj) {
-        PessoaJuridica pessoa = (PessoaJuridica) obj;
-        return  this.cnpj.equals(pessoa.cnpj);
+        return cnpj.equals(((ClientePessoaJuridica) obj).cnpj) ; //converte Object obj to ClientePessoaJuridica obj
     }
+
+    @Override
+    public boolean autenticar(String key){
+        return key == cnpj;
+    }
+
+    //Encapsulation
+    public String getCnpj() {return cnpj;}
+    public void setCnpj(String cnpj) {this.cnpj = cnpj;}
+    public int getNumFuncionarios() {return numFuncionarios;}
+    public void setNumFuncionarios(int numFuncionarios) {this.numFuncionarios = numFuncionarios;}
+    public String getSetor() {return setor;}
+    public void setSetor(String setor) {this.setor = setor;}
+
+    
+
 }
