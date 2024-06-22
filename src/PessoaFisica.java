@@ -14,7 +14,7 @@ public class PessoaFisica extends Cliente {
     
     public String toString(){
         return
-        "\n===== Cliente PF ====="+
+        "\n===================="+
         "\nNome: " + this.nome + 
         "\nIdade: " + this.idade +
         "\nSexo: " + this.sexo +
@@ -25,7 +25,7 @@ public class PessoaFisica extends Cliente {
 
     @Override
     public boolean equals(Object obj) {
-        ClientePessoaFisica pessoa = (ClientePessoaFisica) obj;
+        PessoaFisica pessoa = (PessoaFisica) obj;
         return cpf.equals(pessoa.cpf);
     }
     
