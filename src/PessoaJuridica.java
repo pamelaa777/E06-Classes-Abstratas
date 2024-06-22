@@ -6,7 +6,7 @@ public class PessoaJuridica extends Cliente {
     private int numFuncionarios;
     private String setor;
 
-    public ClientePessoaJuridica(String nome,  String endereco, String cnpj, int numFuncionarios, String setor){
+    public PessoaJuridica(String nome,  String endereco, String cnpj, int numFuncionarios, String setor){
         super(nome, endereco, new Date());
         this.cnpj=cnpj;
         this.numFuncionarios = numFuncionarios;
@@ -26,7 +26,7 @@ public class PessoaJuridica extends Cliente {
 
     @Override
     public boolean equals(Object obj) {
-        return cnpj.equals(((ClientePessoaJuridica) obj).cnpj) ; //converte Object obj to ClientePessoaJuridica obj
+        return cnpj.equals(((PessoaJuridica) obj).cnpj) ; //converte Object obj to ClientePessoaJuridica obj
     }
 
     @Override
