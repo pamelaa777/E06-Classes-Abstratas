@@ -1,6 +1,4 @@
-import Operacao.*;
-import Cliente.*;
-import java.util.Arrays;
+import java.util.*;
 
 public abstract class Conta {
 
