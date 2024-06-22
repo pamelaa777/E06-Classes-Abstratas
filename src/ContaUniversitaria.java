@@ -1,15 +1,16 @@
-public class ContaUniversitaria extends Conta {
+import Cliente.*;
+public class ContaUniversitaria extends Conta{
 
-    public ContaUniversitaria(int numero, Cliente dono, double saldo, double limite) {
-        super(numero, dono, saldo, limite);
+    public ContaUniversitaria(int numero, Cliente dono, double saldo, double limiteMax, double limiteMin){
+        super(numero, dono, saldo);
+        setLimite(limiteMax, limiteMin);
     }
 
     @Override
-    public void setLimite(double limite) {
-        if (limite >= 0 && limite <= 500) {
-            this.limite = limite;
-        } else {
-            System.out.println("Limite inválido. O limite para ContaUniversitaria deve estar entre 0 e 500.");
-        }
+    void setLimite(double limiteMax, double limiteMin) {
+        if (limiteMin < 0) limiteMin = 0;
+        if (limiteMax > 500) limiteMax = 500;
+        super.limiteMin=limiteMin;
+        super.limiteMax=limiteMax;
     }
 }
