@@ -1,4 +1,3 @@
-import Cliente.*;
 public class ContaUniversitaria extends Conta{
 
     public ContaUniversitaria(int numero, Cliente dono, double saldo, double limiteMax, double limiteMin){
